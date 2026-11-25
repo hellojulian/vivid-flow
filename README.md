@@ -6,7 +6,7 @@ A macOS creative workspace for AI ideation, moodboards, and connected visual wor
 
 ## Install
 
-Download the universal DMG from Releases, open it, and drag Vivid Flow into Applications. The build supports Apple Silicon and Intel Macs running macOS 12 or later. A ZIP version is also available.
+Download the universal DMG from Releases, open it, and drag Vivid Flow into Applications. The build supports Apple Silicon and Intel Macs running macOS 12 or later.
 
 The initial release is Developer ID signed but not notarized. macOS may show a first-launch warning. See the release notes and [Apple's instructions](https://support.apple.com/en-au/102445) for opening an app you trust.
 
