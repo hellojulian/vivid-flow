@@ -15,6 +15,7 @@ for(const asset of report.assets){
     const js=fs.readFileSync(file,'utf8');
     assert.ok(!js.includes('document.getElementById(`__framer-badge-container`)'),'Badge bootstrap remains');
     assert.ok(js.includes('/vivid-flow/'),'GitHub Pages base path missing');
+    assert.ok(js.includes('siteCanonicalURL:'+JSON.stringify(new URL(report.target).origin)),'Canonical origin must not repeat the project path');
   }
 }
 assert.ok(html.includes('https://github.com/hellojulian/vivid-flow/releases/download/'),'App download missing');

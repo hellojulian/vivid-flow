@@ -39,7 +39,7 @@ function patchMain(text){
       const key=node.key.name||node.key.value;
       if(key==='EditorBar')changes.push([node.value.start,node.value.end,'void 0']);
       if(node.value.type==='TemplateLiteral'&&node.value.quasis.length===1&&node.value.quasis[0].value.cooked==='testimonials')changes.push([node.value.start,node.value.end,JSON.stringify('pricing-1')]);
-      if(key==='siteCanonicalURL')changes.push([node.value.start,node.value.end,JSON.stringify(TARGET.slice(0,-1))]);
+      if(key==='siteCanonicalURL')changes.push([node.value.start,node.value.end,JSON.stringify(new URL(TARGET).origin)]);
       if(key==='path'&&node.value.type==='TemplateLiteral'&&node.value.quasis.length===1){
         const value=node.value.quasis[0].value.cooked;
         if(value==='/'||value==='/404')changes.push([node.value.start,node.value.end,JSON.stringify(value==='/'?BASE:BASE+'404')]);
@@ -111,6 +111,11 @@ for(const asset of assets.values()){
   fs.writeFileSync(file,asset.text!==undefined?rewrite(asset.text):asset.binary);
 }
 html=rewrite(html);
+const entry=[...assets.values()].find(asset=>new URL(asset.url).pathname.includes('/script_main.'));
+if(entry){
+  const revision=crypto.createHash('sha256').update(rewrite(entry.text)).digest('hex').slice(0,12);
+  html=html.replaceAll(BASE+entry.local,BASE+entry.local+'?v='+revision);
+}
 // No host badge is mounted: the copied site's bootstrap no longer starts it.
 function removeBadgeElement(document){
   const start=document.indexOf('<div id="__framer-badge-container"');
