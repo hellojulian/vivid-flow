@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hellojulian.github.io/vivid-flow/sitemap.xml

@@ -1,0 +1,10 @@
+{
+  "name": "vivid-flow-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export": "node scripts/export-site.mjs",
+    "check": "node scripts/check-site.mjs"
+  },
+  "devDependencies": { "@babel/parser": "7.29.0" }
+}

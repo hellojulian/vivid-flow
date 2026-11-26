@@ -1,0 +1,14 @@
+{
+  "checkedOn": "2026-11-26",
+  "target": "/Users/julesss/Dev/creator-studio/sites/vivid-flow-pages/site",
+  "filesChecked": 137,
+  "bytesChecked": 30299587,
+  "credentialNamesCompared": [
+    "VITE_FAL_API_KEY",
+    "FAL_KEY",
+    "REVE_API_TOKEN"
+  ],
+  "secretValuesPrinted": false,
+  "passed": true,
+  "findings": []
+}

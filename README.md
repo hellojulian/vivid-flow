@@ -2,18 +2,40 @@
 
 A macOS creative workspace for AI ideation, moodboards, and connected visual workflows.
 
-[Download the latest release](https://github.com/hellojulian/vivid-flow/releases/latest)
+[Visit the website](https://hellojulian.github.io/vivid-flow/) · [Download the latest release](https://github.com/hellojulian/vivid-flow/releases/latest)
 
-## Install
+## Install the app
 
-Download the universal DMG from Releases, open it, and drag Vivid Flow into Applications. The build supports Apple Silicon and Intel Macs running macOS 12 or later.
+Download the universal DMG from Releases, open it, and drag Vivid Flow into Applications. The build includes Apple Silicon and Intel binaries. See the current release notes for supported macOS versions and verification details.
 
-The initial release is Developer ID signed but not notarized. macOS may show a first-launch warning. See the release notes and [Apple's instructions](https://support.apple.com/en-au/102445) for opening an app you trust.
+The app is Developer ID signed but not notarized. See the release notes and [Apple's instructions](https://support.apple.com/en-au/102445) for opening an app you trust.
 
-## Getting started
+Open Settings and enter your own fal API key. Generation uses your fal account and credits. The app stores content locally; reference media and prompts used for generation are sent to fal.
 
-Open Settings and enter your own Fal API key. Generation uses your Fal credits; image references, moodboards, and workflows remain in the app's local content storage.
+## Website
 
-Explore on the Ideate canvas, combine up to ten images in a moodboard, or build connected image, video, and 3D generation workflows in the node editor.
+`site/` contains the static website and its local images, fonts, and published runtime assets. It is deployed to GitHub Pages by `.github/workflows/pages.yml`. Application files, runtime data, and API keys are not part of this repository or deployment.
 
-This repository hosts the downloadable macOS releases and installation notes.
+The export preserves the published page's responsive layout and interactions. Host-only badge, analytics, and editor bootstrap are excluded. `site/hosting.css` fixes small-screen navigation clipping. Export provenance is recorded in `reports/export.json`.
+
+### Preview
+
+```sh
+node scripts/preview.mjs
+```
+
+Open `http://127.0.0.1:3320/vivid-flow/`.
+
+### Refresh from the published page
+
+After publishing changes in Framer:
+
+```sh
+npm ci
+npm run export
+npm run check
+```
+
+Review desktop/mobile layout and interactions before committing. The exporter mirrors assets into `site/`; GitHub Pages does not depend on the original asset CDN at runtime. It uses `/vivid-flow/` as the project base path.
+
+Push reviewed changes to `main` to deploy. A deployment can also be started from the Actions page using **Deploy Vivid Flow website**.

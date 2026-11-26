@@ -1,0 +1,24 @@
+{
+  "checkedOn": "2026-11-26",
+  "localURL": "http://127.0.0.1:3320/vivid-flow/",
+  "testedViewports": [
+    {
+      "name": "desktop",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "badgePresent": false
+    },
+    {
+      "name": "mobile",
+      "viewport": 390,
+      "documentWidth": 390,
+      "badgePresent": false
+    }
+  ],
+  "failedRequests": [],
+  "externalAssetRequests": [],
+  "brokenImagesAfterScrolling": [],
+  "faqAccordionOpened": true,
+  "mobileNavigation": "Visually checked after correcting clipped desktop navigation",
+  "downloadURL": "https://github.com/hellojulian/vivid-flow/releases/download/v0.1.2/vivid-flow-0.1.2-universal.dmg"
+}
